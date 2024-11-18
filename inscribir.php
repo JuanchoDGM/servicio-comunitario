@@ -4,16 +4,21 @@
     <meta charset="UTF-8">
     <title>Inscripción de Alumno</title>
     <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/header.css">
 </head>
 <body>
-     <h1>Preescolar - Lista de Alumnos</h1>
-
+    <!-- Header -->
+    <header>
+        <img style="height: 150px;" src="img/logo_marcelino.png" alt="Logo Institución">
+        <h1>Inscripción del alumno</h1>
+    </header>
     <nav>
         <a href="index.php">Lista de Alumnos</a> |
         <a href="inscribir.php">Inscribir Nuevo Alumno</a>
     </nav>
 
-    <h1>Inscripción de Alumno</h1>
+
+    <!-- <h1>Inscripción de Alumno</h1> -->
     <form action="procesar_inscripcion.php" method="POST" enctype="multipart/form-data">
         <h2>Datos del Estudiante</h2>
         
@@ -65,10 +70,10 @@
         <label for="talla_zapato">Talla de zapato:</label>
         <input type="text" name="talla_zapato" id="talla_zapato" required> 
 
-        <label for="peso">Peso:</label>
+        <label for="peso">Peso (kg):</label>
         <input type="number" name="peso" id="peso" required>
 
-        <label for="altura">Altura:</label>
+        <label for="altura">Altura (cm):</label>
         <input type="number" name="altura" id="altura" required>
 
          <label for="tipo_parto">¿Tipo de parto?:</label>
@@ -102,7 +107,7 @@
         <input type="text" name="padre_apellidos" id="padre_apellidos" required>
 
         <label for="padre_foto">Foto:</label>
-        <input type="file" name="padre_foto" id="padre_foto"><br><br>
+        <input type="file" name="padre_foto" id="padre_foto">
 
         <label for="padre_cedula">Cédula:</label>
         <input type="text" name="padre_cedula" id="padre_cedula" required>
@@ -113,7 +118,7 @@
         <label for="padre_fecha_nacimiento">Fecha de nacimiento:</label>
         <input type="date" name="padre_fecha_nacimiento" id="padre_fecha_nacimiento" required>
 
-         <label for="padre_nacionalidad">nacionalidad:</label>
+         <label for="padre_nacionalidad">Nacionalidad:</label>
         <input type="text" name="padre_nacionalidad" id="padre_nacionalidad" required>
 
          <label for="padre_estado_civil">Estado Civil:</label>
@@ -145,7 +150,7 @@
         <input type="text" name="madre_apellidos" id="madre_apellidos" required>
 
         <label for="madre_foto">Foto:</label>
-        <input type="file" name="madre_foto" id="madre_foto"><br><br>
+        <input type="file" name="madre_foto" id="madre_foto">
 
         <label for="madre_cedula">Cédula:</label>
         <input type="text" name="madre_cedula" id="madre_cedula" required>
@@ -156,7 +161,7 @@
         <label for="madre_fecha_nacimiento">Fecha de nacimiento:</label>
         <input type="date" name="madre_fecha_nacimiento" id="madre_fecha_nacimiento" required>
 
-         <label for="madre_nacionalidad">nacionalidad:</label>
+         <label for="madre_nacionalidad">Nacionalidad:</label>
         <input type="text" name="madre_nacionalidad" id="madre_nacionalidad" required>
 
          <label for="madre_estado_civil">Estado Civil:</label>
@@ -188,7 +193,7 @@
         <input type="text" name="representante_apellidos" id="representante_apellidos" required>
 
         <label for="representante_foto">Foto:</label>
-        <input type="file" name="representante_foto" id="representante_foto"><br><br>
+        <input type="file" name="representante_foto" id="representante_foto">
 
         <label for="representante_cedula">Cédula:</label>
         <input type="text" name="representante_cedula" id="representante_cedula" required>
@@ -199,7 +204,7 @@
         <label for="representante_fecha_nacimiento">Fecha de nacimiento:</label>
         <input type="date" name="representante_fecha_nacimiento" id="representante_fecha_nacimiento" required>
 
-         <label for="representante_nacionalidad">nacionalidad:</label>
+         <label for="representante_nacionalidad">Nacionalidad:</label>
         <input type="text" name="representante_nacionalidad" id="representante_nacionalidad" required>
 
          <label for="representante_estado_civil">Estado Civil:</label>
@@ -226,5 +231,10 @@
 
         <button type="submit">Inscribir</button>
     </form>
+    <!-- Footer -->
+    <footer>
+        <p>Desarrollado por: Andrés Marcanoooo - Empresa Carrito</p>
+        <img style="height: 150px;" src="img/psm.png" alt="Logo Empresa">
+    </footer>
 </body>
 </html>

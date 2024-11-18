@@ -8,10 +8,44 @@ include 'includes/conexion.php';
     <meta charset="UTF-8">
     <title>Preescolar - Lista de Alumnos</title>
     <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/header.css">
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        .actions{
+            display: flex;
+            justify-content: space-around;
+            font-size: 1.5rem;
+        }
+        .actions a{
+            background-color: #0d6efd;
+            padding: 5px;
+            border-radius: 30%;
+            color: white;
+            font-weight: bold;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+        }
+        .actions a:hover{
+            background-color: #0a58ca;
+        }
+        .actions a#eliminar{
+            background-color: #dc3545;
+        }
+        .actions a#eliminar:hover{
+            background-color: #c82333;
+        }
+        
+    </style>
 </head>
 <body>
-    <h1>Lista de Alumnos</h1>
-
+    <!-- Header -->
+    <header>
+        <img style="height: 150px;" src="img/logo_marcelino.png" alt="Logo Institución">
+        <h1>Lista de alumnos</h1>
+    </header>
     <nav>
         <a href="index.php">Lista de Alumnos</a> |
         <a href="inscribir.php">Inscribir Nuevo Alumno</a>
@@ -44,10 +78,15 @@ include 'includes/conexion.php';
                     echo "<td>" . $row["fecha_nacimiento"] . "</td>";
                     echo "<td>" . $row["grupo"] . "</td>";
                     echo "<td>" . $row["cedula_escolar"] . "</td>";
-                    echo "<td style='font-size: 1.5rem;'><a href='eliminar.php?id=" . $row["id"] . "' onclick='return confirm(\"¿Estás seguro de que deseas eliminar este estudiante?\")'><ion-icon name='trash-outline'></ion-icon></a>
+                    echo "<td class='actions'>
 
-                        <a href='modificar.php?id=" . $row["id"] . "'><ion-icon name='create-outline'></ion-icon></a>
-                        <a href='ver_mas.php?id=" . $row["id"] . "'><ion-icon name='add-circle-outline'></ion-icon></a></td>";
+                            <a href='modificar.php?id=" . $row["id"] . "'><ion-icon name='create-outline'></ion-icon></a>
+
+                            <a href='ver_mas.php?id=" . $row["id"] . "'><ion-icon name='add-circle-outline'></ion-icon></a>
+
+                            <a id='eliminar' href='eliminar.php?id=" . $row["id"] . "' onclick='return confirm(\"¿Estás seguro de que deseas eliminar este estudiante?\")'><ion-icon name='trash-outline'></ion-icon></a>
+
+                        </td>";
                     echo "</tr>";
                 }
             } else {
@@ -57,6 +96,8 @@ include 'includes/conexion.php';
             ?>
         </tbody>
     </table>
+
+    
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

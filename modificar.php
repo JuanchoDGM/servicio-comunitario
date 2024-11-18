@@ -213,5 +213,11 @@
 
         <button type="submit">Guardar Cambios</button>
     </form>
+
+    <!-- Footer -->
+    <footer>
+        <p>Desarrollado por: Andrés Marcanoooo - Empresa Carrito</p>
+        <img style="height: 150px;" src="img/psm.png" alt="Logo Empresa">
+    </footer>
 </body>
 </html>

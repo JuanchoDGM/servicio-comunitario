@@ -40,47 +40,7 @@ if (isset($_GET['id'])) {
     <style>
         /* General Styles */
         body {
-            /* font-family: 'Arial', sans-serif; */
             background-color: #f4f6f9;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* Header */
-        header {
-            color: white;
-            padding: 15px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        header img {
-            height: 50px;
-        }
-
-        header h1 {
-            font-size: 1.5em;
-            margin: 0;
-        }
-
-        /* Footer */
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 20px 10px;
-            margin-top: 20px;
-        }
-
-        footer p {
-            margin: 5px 0;
-            font-size: 0.9em;
-        }
-
-        footer img {
-            height: 40px;
-            margin-top: 10px;
         }
 
         /* Container and Card Styles */
@@ -116,7 +76,7 @@ if (isset($_GET['id'])) {
             font-weight: bold;
             font-size: 1.2em;
             margin-bottom: 10px;
-            color: #555;
+            color: navy;
         }
 
         .card-content {
@@ -130,11 +90,12 @@ if (isset($_GET['id'])) {
         .card-content div {
             flex: 1 1 calc(50% - 20px);
             margin-bottom: 10px;
+            color: #333;
         }
 
         .card-content div strong {
             display: block;
-            color: #666;
+            color: black;
             font-size: 0.95em;
         }
 
@@ -152,7 +113,7 @@ if (isset($_GET['id'])) {
             border-radius: 5px;
             transition: background-color 0.3s ease;
             color: #fff;
-            background-color: #007bff;
+            background-color: navy;
         }
 
         .btn:hover {
@@ -164,12 +125,11 @@ if (isset($_GET['id'])) {
     <!-- Header -->
     <header>
         <img style="height: 150px;" src="img/logo_marcelino.png" alt="Logo Institución">
-        <h1>Información del Alumno</h1>
+        <h1>Información Completa del Alumno</h1>
     </header>
 
     <!-- Main Content -->
     <div class="container">
-        <h1>Información Completa del Alumno</h1>
 
         <!-- Card Datos del Alumno -->
         <div class="card">
