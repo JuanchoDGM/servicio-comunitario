@@ -1,78 +1,6 @@
 <?php
-include 'includes/conexion.php';
-
-// Verificar si se recibe el ID del alumno
-if (isset($_GET['id'])) {
-    $alumno_id = intval($_GET['id']);
-
-    // Obtener los datos actuales del alumno
-    $sql_alumno = "SELECT * FROM alumnos WHERE id = $alumno_id";
-    $result_alumno = $conn->query($sql_alumno);
-    $alumnos = $result_alumno->fetch_assoc();
-
-    // Obtener los datos actuales del padre, madre y representante
-    $sql_padre = "SELECT * FROM padres WHERE alumno_id = $alumno_id";
-    $result_padre = $conn->query($sql_padre);
-    $padre = $result_padre->fetch_assoc();
-
-    $sql_madre = "SELECT * FROM madres WHERE alumno_id = $alumno_id";
-    $result_madre = $conn->query($sql_madre);
-    $madres = $result_madre->fetch_assoc();
-
-    $sql_representante = "SELECT * FROM representantes WHERE alumno_id = $alumno_id";
-    $result_representante = $conn->query($sql_representante);
-    $representantes = $result_representante->fetch_assoc();
-} else {
-    echo "ID de alumno no especificado.";
-    exit();
-}
-
-// Actualizar los datos al enviar el formulario
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Datos actualizados del alumno
-    $nombres = $_POST['nombres'];
-    $apellidos = $_POST['apellidos'];
-    $cedula_escolar = $_POST['cedula_escolar'];
-    $fecha_nacimiento = $_POST['fecha_nacimiento'];
-    $lugar_nacimiento = $_POST['lugar_nacimiento'];
-    $procede_hogar = $_POST['procede_hogar'];
-    $talla_camisa = $_POST['talla_camisa'];
-    $talla_pantalon = $_POST['talla_pantalon'];
-    $talla_zapato = $_POST['talla_zapato'];
-    $peso = $_POST['peso'];
-    $altura = $_POST['altura'];
-    $tipo_parto = $_POST['tipo_parto'];
-    $direccion_habitacion = $_POST['direccion_habitacion'];
-
-    // Actualizar datos del alumno
-    $sql_update_alumno = "UPDATE alumnos SET nombres = '$nombres', apellidos = '$apellidos', cedula_escolar = '$cedula_escolar', fecha_nacimiento = '$fecha_nacimiento', lugar_nacimiento = '$lugar_nacimiento', procede_hogar = '$procede_hogar', talla_camisa = '$talla_camisa', talla_pantalon = '$talla_pantalon', talla_zapato = '$talla_zapato', peso = '$peso', altura = '$altura', tipo_parto = '$tipo_parto', direccion_habitacion = '$direccion_habitacion' WHERE id = $alumno_id";
-    $conn->query($sql_update_alumno);
-
-    // Datos actualizados del padre
-    $padre_nombres = $_POST['padre_nombres'];
-    $padre_apellidos = $_POST['padre_apellidos'];
-    $padre_cedula = $_POST['padre_cedula'];
-    $sql_update_padre = "UPDATE padres SET nombres = '$padre_nombres', apellidos = '$padre_apellidos', cedula = '$padre_cedula' WHERE alumno_id = $alumno_id";
-    $conn->query($sql_update_padre);
-
-    // Datos actualizados de la madre
-    $madre_nombres = $_POST['madre_nombres'];
-    $madre_apellidos = $_POST['madre_apellidos'];
-    $madre_cedula = $_POST['madre_cedula'];
-    $sql_update_madre = "UPDATE madres SET nombres = '$madre_nombres', apellidos = '$madre_apellidos', cedula = '$madre_cedula' WHERE alumno_id = $alumno_id";
-    $conn->query($sql_update_madre);
-
-    // Datos actualizados del representante
-    $rep_nombres = $_POST['rep_nombres'];
-    $rep_apellidos = $_POST['rep_apellidos'];
-    $rep_cedula = $_POST['rep_cedula'];
-    $sql_update_representante = "UPDATE representantes SET nombres = '$rep_nombres', apellidos = '$rep_apellidos', cedula = '$rep_cedula' WHERE alumno_id = $alumno_id";
-    $conn->query($sql_update_representante);
-
-    echo "Datos del alumno y sus representantes actualizados correctamente.";
-}
+    include 'procesar_modificacion.php';
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -82,19 +10,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
     <h1>Modificar Alumno</h1>
-
-    <form action="procesar_modificacion.php" method="POST" enctype="multipart/form-data">
+    
+    <form action="procesar_modificacion.php?id=<?= $alumno_id ?>" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="alumno_id" value="<?= $alumno_id ?>">
         <h2>Datos del Estudiante</h2>
         
-
         <label for="nombres">Nombres:</label>
         <input type="text" name="nombres" id="nombres" value="<?= $alumnos['nombres'] ?>" required>
 
         <label for="apellidos">Apellidos:</label>
         <input type="text" name="apellidos" id="apellidos" value="<?php echo $alumnos['apellidos'] ?>" required>
 
-        <label for="foto">Foto del Estudiante:</label>
-        <input type="file" name="foto" id="foto" value="<?php echo $alumnos['foto']; ?>">
 
         <label for="cedula_escolar">Cédula Escolar:</label>
         <input type="text" name="cedula_escolar" id="cedula_escolar" value="<?php echo $alumnos['cedula_escolar']; ?>" required>
@@ -171,8 +97,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <label for="padre_apellidos">Apellidos:</label>
         <input type="text" name="padre_apellidos" id="padre_apellidos" value="<?php echo $padre['apellidos']; ?>" required>
 
-        <label for="padre_foto">Foto:</label>
-        <input type="file" name="padre_foto" id="padre_foto">
 
         <label for="padre_cedula">Cédula:</label>
         <input type="text" name="padre_cedula" id="padre_cedula" value="<?php echo $padre['cedula']; ?>" required>
@@ -214,9 +138,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <label for="madre_apellidos">Apellidos:</label>
         <input type="text" name="madre_apellidos" id="madre_apellidos" value="<?php echo $madres['apellidos']; ?>" required>
 
-        <label for="madre_foto">Foto:</label>
-        <input type="file" name="madre_foto" id="foto">
-
         <label for="madre_cedula">Cédula:</label>
         <input type="text" name="madre_cedula" id="madre_cedula" value="<?php echo $madres['cedula']; ?>" required>
 
@@ -256,9 +177,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <label for="representante_apellidos">Apellidos:</label>
         <input type="text" name="representante_apellidos" id="representante_apellidos" value="<?php echo $representantes['apellidos']; ?>" required>
-
-        <label for="representante_foto">Foto:</label>
-        <input type="file" name="representante_foto" id="foto">
 
         <label for="representante_cedula">Cédula:</label>
         <input type="text" name="representante_cedula" id="representante_cedula" value="<?php echo $representantes['cedula']; ?>" required>

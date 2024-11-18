@@ -66,15 +66,15 @@
         <input type="text" name="talla_zapato" id="talla_zapato" required> 
 
         <label for="peso">Peso:</label>
-        <input type="text" name="peso" id="peso" required>
+        <input type="number" name="peso" id="peso" required>
 
         <label for="altura">Altura:</label>
-        <input type="text" name="altura" id="altura" required>
+        <input type="number" name="altura" id="altura" required>
 
          <label for="tipo_parto">¿Tipo de parto?:</label>
         <select name="tipo_parto" id="tipo_parto" required>
-            <option value="normal">normal</option>
-            <option value="cesarea">cesarea</option>
+            <option value="normal">Normal</option>
+            <option value="cesarea">Cesárea</option>
         </select>
 
         <label for="vacunas">Vacunas:</label>
@@ -111,7 +111,7 @@
         <input type="text" name="padre_telefono" id="padre_telefono" required>
 
         <label for="padre_fecha_nacimiento">Fecha de nacimiento:</label>
-        <input type="text" name="padre_fecha_nacimiento" id="padre_fecha_nacimiento" required>
+        <input type="date" name="padre_fecha_nacimiento" id="padre_fecha_nacimiento" required>
 
          <label for="padre_nacionalidad">nacionalidad:</label>
         <input type="text" name="padre_nacionalidad" id="padre_nacionalidad" required>
@@ -154,7 +154,7 @@
         <input type="text" name="madre_telefono" id="madre_telefono" required>
 
         <label for="madre_fecha_nacimiento">Fecha de nacimiento:</label>
-        <input type="text" name="madre_fecha_nacimiento" id="madre_fecha_nacimiento" required>
+        <input type="date" name="madre_fecha_nacimiento" id="madre_fecha_nacimiento" required>
 
          <label for="madre_nacionalidad">nacionalidad:</label>
         <input type="text" name="madre_nacionalidad" id="madre_nacionalidad" required>
@@ -223,18 +223,6 @@
             <option value="no">No</option>
         </select>
 
-
-
-
-
-
-
-
-
-        
-
-
-        <!-- Otros campos para el padre, madre y representante aquí... -->
 
         <button type="submit">Inscribir</button>
     </form>
