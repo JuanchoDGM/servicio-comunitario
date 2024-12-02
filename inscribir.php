@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(!isset($_SESSION['usuario'])){
+    header("Location: login.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -30,7 +37,7 @@
         <input type="text" name="apellidos" id="apellidos" required>
 
         <label for="foto">Foto del Estudiante:</label>
-        <input type="file" name="foto" id="foto">
+        <input type="file" name="foto" id="foto" required>
 
         <label for="cedula_escolar">Cédula Escolar:</label>
         <input type="text" name="cedula_escolar" id="cedula_escolar" required>
@@ -107,7 +114,7 @@
         <input type="text" name="padre_apellidos" id="padre_apellidos" required>
 
         <label for="padre_foto">Foto:</label>
-        <input type="file" name="padre_foto" id="padre_foto">
+        <input type="file" name="padre_foto" id="padre_foto" required>
 
         <label for="padre_cedula">Cédula:</label>
         <input type="text" name="padre_cedula" id="padre_cedula" required>
@@ -150,7 +157,7 @@
         <input type="text" name="madre_apellidos" id="madre_apellidos" required>
 
         <label for="madre_foto">Foto:</label>
-        <input type="file" name="madre_foto" id="madre_foto">
+        <input type="file" name="madre_foto" id="madre_foto" required>
 
         <label for="madre_cedula">Cédula:</label>
         <input type="text" name="madre_cedula" id="madre_cedula" required>
@@ -193,7 +200,7 @@
         <input type="text" name="representante_apellidos" id="representante_apellidos" required>
 
         <label for="representante_foto">Foto:</label>
-        <input type="file" name="representante_foto" id="representante_foto">
+        <input type="file" name="representante_foto" id="representante_foto" required>
 
         <label for="representante_cedula">Cédula:</label>
         <input type="text" name="representante_cedula" id="representante_cedula" required>
@@ -233,7 +240,7 @@
     </form>
     <!-- Footer -->
     <footer>
-        <p>Desarrollado por: Andrés Marcanoooo - Empresa Carrito</p>
+        <p><br>Desarrollado por:</br> Servicio Comunitario <br>Ingenieria en Sistemas</br>Santiago Mariño</p>
         <img style="height: 150px;" src="img/psm.png" alt="Logo Empresa">
     </footer>
 </body>

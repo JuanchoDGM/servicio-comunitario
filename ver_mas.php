@@ -1,4 +1,9 @@
 <?php
+session_start();
+if(!isset($_SESSION['usuario'])){
+    header("Location: login.php");
+    exit();
+}
 include 'includes/conexion.php';
 
 // Verificar si se recibe el ID del alumno
@@ -37,6 +42,7 @@ if (isset($_GET['id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Información del Alumno</title>
     <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/header.css">
     <style>
         /* General Styles */
         body {
@@ -117,7 +123,7 @@ if (isset($_GET['id'])) {
         }
 
         .btn:hover {
-            background-color: #0056b3;
+            background-color: #000030;
         }
     </style>
 </head>
@@ -161,6 +167,16 @@ if (isset($_GET['id'])) {
             <div class="card-content">
                 <div><strong>Nombre:</strong> <?= $padre['nombres'] . ' ' . $padre['apellidos'] ?></div>
                 <div><strong>Cédula:</strong> <?= $padre['cedula'] ?></div>
+                <div><strong>Telefono:</strong> <?= $padre['telefono'] ?></div>
+                <div><strong>Fecha de nacimiento:</strong> <?= $padre['fecha_nacimiento'] ?></div>
+                <div><strong>Nacionalidad:</strong> <?= $padre['nacionalidad'] ?></div>
+                <div><strong>Estado civil:</strong> <?= $padre['estado_civil'] ?></div>
+                <div><strong>Grado de instrucción:</strong> <?= $padre['grado_instruccion'] ?></div>
+                <div><strong>Número de hijos:</strong> <?= $padre['numero_hijos'] ?></div>
+                <div><strong>Hijos estudiando:</strong> <?= $padre['hijos_estudian'] ?></div>
+                <div><strong>Religion:</strong> <?= $padre['religion'] ?></div>
+                <div><strong>Vive con el niño:</strong> <?= $padre['vive_con_nino'] ?></div>
+                <div><strong>Foto:</strong><img style="height: 150px; border: #666 2px solid; padding: 5px;" src="<?= $padre['foto'] ?>" alt="foto"></div>
             </div>
         </div>
 
@@ -170,6 +186,16 @@ if (isset($_GET['id'])) {
             <div class="card-content">
                 <div><strong>Nombre:</strong> <?= $madre['nombres'] . ' ' . $madre['apellidos'] ?></div>
                 <div><strong>Cédula:</strong> <?= $madre['cedula'] ?></div>
+                <div><strong>Telefono:</strong> <?= $madre['telefono'] ?></div>
+                <div><strong>Fecha de nacimiento:</strong> <?= $madre['fecha_nacimiento'] ?></div>
+                <div><strong>Nacionalidad:</strong> <?= $madre['nacionalidad'] ?></div>
+                <div><strong>Estado civil:</strong> <?= $madre['estado_civil'] ?></div>
+                <div><strong>Grado de instrucción:</strong> <?= $madre['grado_instruccion'] ?></div>
+                <div><strong>Número de hijos:</strong> <?= $madre['numero_hijos'] ?></div>
+                <div><strong>Hijos estudiando:</strong> <?= $madre['hijos_estudian'] ?></div>
+                <div><strong>Religion:</strong> <?= $madre['religion'] ?></div>
+                <div><strong>Vive con el niño:</strong> <?= $madre['vive_con_nino'] ?></div>
+                <div><strong>Foto:</strong><img style="height: 150px; border: #666 2px solid; padding: 5px;" src="<?= $madre['foto'] ?>" alt="foto"></div>
             </div>
         </div>
 
@@ -179,6 +205,16 @@ if (isset($_GET['id'])) {
             <div class="card-content">
                 <div><strong>Nombre:</strong> <?= $representante['nombres'] . ' ' . $representante['apellidos'] ?></div>
                 <div><strong>Cédula:</strong> <?= $representante['cedula'] ?></div>
+                <div><strong>Telefono:</strong> <?= $representante['telefono'] ?></div>
+                <div><strong>Fecha de nacimiento:</strong> <?= $representante['fecha_nacimiento'] ?></div>
+                <div><strong>Nacionalidad:</strong> <?= $representante['nacionalidad'] ?></div>
+                <div><strong>Estado civil:</strong> <?= $representante['estado_civil'] ?></div>
+                <div><strong>Grado de instrucción:</strong> <?= $representante['grado_instruccion'] ?></div>
+                <div><strong>Número de hijos:</strong> <?= $representante['numero_hijos'] ?></div>
+                <div><strong>Hijos estudiando:</strong> <?= $representante['hijos_estudian'] ?></div>
+                <div><strong>Religion:</strong> <?= $representante['religion'] ?></div>
+                <div><strong>Vive con el niño:</strong> <?= $representante['vive_con_nino'] ?></div>
+                <div><strong>Foto:</strong><img style="height: 150px; border: #666 2px solid; padding: 5px;" src="<?= $representante['foto'] ?>" alt="foto"></div>
             </div>
         </div>
 
@@ -190,7 +226,7 @@ if (isset($_GET['id'])) {
 
     <!-- Footer -->
     <footer>
-        <p>Desarrollado por: Andrés Marcanoooo - Empresa Carrito</p>
+        <p><br>Desarrollado por:</br> Servicio Comunitario <br>Ingenieria en Sistemas</br>Santiago Mariño</p>
         <img style="height: 150px;" src="img/psm.png" alt="Logo Empresa">
     </footer>
 </body>

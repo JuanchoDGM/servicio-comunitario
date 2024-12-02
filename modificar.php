@@ -1,4 +1,9 @@
 <?php
+session_start();
+if(!isset($_SESSION['usuario'])){
+    header("Location: login.php");
+    exit();
+}
     include 'procesar_modificacion.php';
 ?>
 <!DOCTYPE html>
@@ -7,9 +12,13 @@
     <meta charset="UTF-8">
     <title>Modificar Alumno</title>
     <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/header.css">
 </head>
 <body>
-    <h1>Modificar Alumno</h1>
+    <header>
+        <img style="height: 150px;" src="img/logo_marcelino.png" alt="Logo Institución">
+        <h1>Modificar datos</h1>
+    </header>
     
     <form action="procesar_modificacion.php?id=<?= $alumno_id ?>" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="alumno_id" value="<?= $alumno_id ?>">
@@ -216,7 +225,7 @@
 
     <!-- Footer -->
     <footer>
-        <p>Desarrollado por: Andrés Marcanoooo - Empresa Carrito</p>
+        <p><br>Desarrollado por:</br> Servicio Comunitario <br>Ingenieria en Sistemas</br>Santiago Mariño</p>
         <img style="height: 150px;" src="img/psm.png" alt="Logo Empresa">
     </footer>
 </body>

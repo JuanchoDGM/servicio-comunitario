@@ -1,4 +1,9 @@
 <?php
+session_start();
+if(!isset($_SESSION['usuario'])){
+    header("Location: login.php");
+    exit();
+}
 include 'includes/conexion.php';
 ?>
 
@@ -37,7 +42,13 @@ include 'includes/conexion.php';
         .actions a#eliminar:hover{
             background-color: #c82333;
         }
-        
+        .logout{
+            background-color: rgba(255, 0, 0, 0.2);
+            border: 1px red solid;
+        }
+        .logout:hover{
+            background-color: rgba(255, 0, 0, 0.4);
+        }
     </style>
 </head>
 <body>
@@ -48,7 +59,9 @@ include 'includes/conexion.php';
     </header>
     <nav>
         <a href="index.php">Lista de Alumnos</a> |
-        <a href="inscribir.php">Inscribir Nuevo Alumno</a>
+        <a href="inscribir.php">Inscribir Nuevo Alumno</a> |
+        <a class="logout" href="logout.php">Cerrar Sesión</a>
+        
     </nav>
 
     <table>
