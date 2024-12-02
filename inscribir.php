@@ -1,18 +1,20 @@
 <?php
 session_start();
-if(!isset($_SESSION['usuario'])){
+if (!isset($_SESSION['usuario'])) {
     header("Location: login.php");
     exit();
 }
 ?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>Inscripción de Alumno</title>
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="css/header.css">
 </head>
+
 <body>
     <!-- Header -->
     <header>
@@ -21,14 +23,15 @@ if(!isset($_SESSION['usuario'])){
     </header>
     <nav>
         <a href="index.php">Lista de Alumnos</a> |
-        <a href="inscribir.php">Inscribir Nuevo Alumno</a>
+        <a class="logout" href="logout.php">Cerrar Sesión</a>
+
     </nav>
 
 
     <!-- <h1>Inscripción de Alumno</h1> -->
     <form action="procesar_inscripcion.php" method="POST" enctype="multipart/form-data">
         <h2>Datos del Estudiante</h2>
-        
+
 
         <label for="nombres">Nombres:</label>
         <input type="text" name="nombres" id="nombres" required>
@@ -75,7 +78,7 @@ if(!isset($_SESSION['usuario'])){
         <input type="text" name="talla_pantalon" id="talla_pantalon" required>
 
         <label for="talla_zapato">Talla de zapato:</label>
-        <input type="text" name="talla_zapato" id="talla_zapato" required> 
+        <input type="text" name="talla_zapato" id="talla_zapato" required>
 
         <label for="peso">Peso (kg):</label>
         <input type="number" name="peso" id="peso" required>
@@ -83,7 +86,7 @@ if(!isset($_SESSION['usuario'])){
         <label for="altura">Altura (cm):</label>
         <input type="number" name="altura" id="altura" required>
 
-         <label for="tipo_parto">¿Tipo de parto?:</label>
+        <label for="tipo_parto">¿Tipo de parto?:</label>
         <select name="tipo_parto" id="tipo_parto" required>
             <option value="normal">Normal</option>
             <option value="cesarea">Cesárea</option>
@@ -125,22 +128,22 @@ if(!isset($_SESSION['usuario'])){
         <label for="padre_fecha_nacimiento">Fecha de nacimiento:</label>
         <input type="date" name="padre_fecha_nacimiento" id="padre_fecha_nacimiento" required>
 
-         <label for="padre_nacionalidad">Nacionalidad:</label>
+        <label for="padre_nacionalidad">Nacionalidad:</label>
         <input type="text" name="padre_nacionalidad" id="padre_nacionalidad" required>
 
-         <label for="padre_estado_civil">Estado Civil:</label>
+        <label for="padre_estado_civil">Estado Civil:</label>
         <input type="text" name="padre_estado_civil" id="padre_estado_civil" required>
 
-         <label for="padre_grado_instruccion">Grado de instruccion:</label>
+        <label for="padre_grado_instruccion">Grado de instruccion:</label>
         <input type="text" name="padre_grado_instruccion" id="padre_grado_instruccion" required>
 
-         <label for="padre_numero_hijos">Numero de Hijos:</label>
+        <label for="padre_numero_hijos">Numero de Hijos:</label>
         <input type="text" name="padre_numero_hijos" id="padre_numero_hijos" required>
 
-         <label for="padre_hijos_estudian">¿Cuantos Estudian?:</label>
+        <label for="padre_hijos_estudian">¿Cuantos Estudian?:</label>
         <input type="text" name="padre_hijos_estudian" id="padre_hijos_estudian" required>
 
-         <label for="padre_religion">Religion:</label>
+        <label for="padre_religion">Religion:</label>
         <input type="text" name="padre_religion" id="padre_religion" required>
 
         <label for="padre_vive_nino">¿Vive con el niño?:</label>
@@ -168,22 +171,22 @@ if(!isset($_SESSION['usuario'])){
         <label for="madre_fecha_nacimiento">Fecha de nacimiento:</label>
         <input type="date" name="madre_fecha_nacimiento" id="madre_fecha_nacimiento" required>
 
-         <label for="madre_nacionalidad">Nacionalidad:</label>
+        <label for="madre_nacionalidad">Nacionalidad:</label>
         <input type="text" name="madre_nacionalidad" id="madre_nacionalidad" required>
 
-         <label for="madre_estado_civil">Estado Civil:</label>
+        <label for="madre_estado_civil">Estado Civil:</label>
         <input type="text" name="madre_estado_civil" id="madre_estado_civil" required>
 
-         <label for="madre_grado_instruccion">Grado de instruccion:</label>
+        <label for="madre_grado_instruccion">Grado de instruccion:</label>
         <input type="text" name="madre_grado_instruccion" id="madre_grado_instruccion" required>
 
-         <label for="madre_numero_hijos">Numero de Hijos:</label>
+        <label for="madre_numero_hijos">Numero de Hijos:</label>
         <input type="text" name="madre_numero_hijos" id="madre_numero_hijos" required>
 
-         <label for="madre_hijos_estudian">¿Cuantos Estudian?:</label>
+        <label for="madre_hijos_estudian">¿Cuantos Estudian?:</label>
         <input type="text" name="madre_hijos_estudian" id="madre_hijos_estudian" required>
 
-         <label for="madre_religion">Religion:</label>
+        <label for="madre_religion">Religion:</label>
         <input type="text" name="madre_religion" id="madre_religion" required>
 
         <label for="madre_vive_nino">¿Vive con el niño?:</label>
@@ -208,25 +211,28 @@ if(!isset($_SESSION['usuario'])){
         <label for="representante_telefono">Telefono:</label>
         <input type="text" name="representante_telefono" id="representante_telefono" required>
 
+        <label for="representante_correo">Correo:</label>
+        <input type="email" name="representante_correo" id="representante_correo" required>
+
         <label for="representante_fecha_nacimiento">Fecha de nacimiento:</label>
         <input type="date" name="representante_fecha_nacimiento" id="representante_fecha_nacimiento" required>
 
-         <label for="representante_nacionalidad">Nacionalidad:</label>
+        <label for="representante_nacionalidad">Nacionalidad:</label>
         <input type="text" name="representante_nacionalidad" id="representante_nacionalidad" required>
 
-         <label for="representante_estado_civil">Estado Civil:</label>
+        <label for="representante_estado_civil">Estado Civil:</label>
         <input type="text" name="representante_estado_civil" id="representante_estado_civil" required>
 
-         <label for="representante_grado_instruccion">Grado de instruccion:</label>
+        <label for="representante_grado_instruccion">Grado de instruccion:</label>
         <input type="text" name="representante_grado_instruccion" id="representante_grado_instruccion" required>
 
-         <label for="representante_numero_hijos">Numero de Hijos:</label>
+        <label for="representante_numero_hijos">Numero de Hijos:</label>
         <input type="text" name="representante_numero_hijos" id="representante_numero_hijos" required>
 
-         <label for="representante_hijos_estudian">¿Cuantos Estudian?:</label>
+        <label for="representante_hijos_estudian">¿Cuantos Estudian?:</label>
         <input type="text" name="representante_hijos_estudian" id="representante_hijos_estudian" required>
 
-         <label for="representante_religion">Religion:</label>
+        <label for="representante_religion">Religion:</label>
         <input type="text" name="representante_religion" id="representante_religion" required>
 
         <label for="representante_vive_nino">¿Vive con el niño?:</label>
@@ -240,8 +246,14 @@ if(!isset($_SESSION['usuario'])){
     </form>
     <!-- Footer -->
     <footer>
-        <p><br>Desarrollado por:</br> Servicio Comunitario <br>Ingenieria en Sistemas</br>Santiago Mariño</p>
-        <img style="height: 150px;" src="img/psm.png" alt="Logo Empresa">
+        <div class="footer-content">
+            <p>Desarrollado por:</p>
+            <p>Servicio Comunitario</p>
+            <p>Ingeniería en Sistemas</p>
+            <img src="img/psm.png" alt="Logo Empresa">
+            <p>IUP "Santiago Mariño"</p>
+        </div>
     </footer>
 </body>
+
 </html>

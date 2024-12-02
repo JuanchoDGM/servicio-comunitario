@@ -9,7 +9,8 @@ body {
     background-color: #f4f4f9;
 }
 
-h1, h2 {
+h1,
+h2 {
     color: #333;
     text-align: center;
 }
@@ -19,6 +20,9 @@ a {
     text-decoration: none;
 }
 
+input {
+    font-family: 'Poppins', sans-serif;
+}
 
 
 /* Menú de navegación */
@@ -46,7 +50,14 @@ ul {
     padding: 0;
 }
 
-#foto, #padre_foto, #madre_foto, #representante_foto, #fecha_nacimiento, #padre_fecha_nacimiento, #madre_fecha_nacimiento, #representante_fecha_nacimiento{
+#foto,
+#padre_foto,
+#madre_foto,
+#representante_foto,
+#fecha_nacimiento,
+#padre_fecha_nacimiento,
+#madre_fecha_nacimiento,
+#representante_fecha_nacimiento {
     margin: 10px 0px;
     display: block;
 }
@@ -77,6 +88,7 @@ form h3 {
 
 form input[type="text"],
 form input[type="number"],
+form input[type="email"],
 form select {
     width: 100%;
     padding: 10px;

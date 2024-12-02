@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(!isset($_SESSION['usuario'])){
+if (!isset($_SESSION['usuario'])) {
     header("Location: login.php");
     exit();
 }
@@ -9,21 +9,24 @@ include 'includes/conexion.php';
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>Preescolar - Lista de Alumnos</title>
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="css/header.css">
     <style>
-        *{
+        * {
             box-sizing: border-box;
         }
-        .actions{
+
+        .actions {
             display: flex;
             justify-content: space-around;
             font-size: 1.5rem;
         }
-        .actions a{
+
+        .actions a {
             background-color: #0d6efd;
             padding: 5px;
             border-radius: 30%;
@@ -33,24 +36,21 @@ include 'includes/conexion.php';
             height: 40px;
             text-align: center;
         }
-        .actions a:hover{
+
+        .actions a:hover {
             background-color: #0a58ca;
         }
-        .actions a#eliminar{
+
+        .actions a#eliminar {
             background-color: #dc3545;
         }
-        .actions a#eliminar:hover{
+
+        .actions a#eliminar:hover {
             background-color: #c82333;
-        }
-        .logout{
-            background-color: rgba(255, 0, 0, 0.2);
-            border: 1px red solid;
-        }
-        .logout:hover{
-            background-color: rgba(255, 0, 0, 0.4);
         }
     </style>
 </head>
+
 <body>
     <!-- Header -->
     <header>
@@ -60,8 +60,9 @@ include 'includes/conexion.php';
     <nav>
         <a href="index.php">Lista de Alumnos</a> |
         <a href="inscribir.php">Inscribir Nuevo Alumno</a> |
+        <a href="reporte.php">Generar Reporte PDF</a> |
         <a class="logout" href="logout.php">Cerrar Sesión</a>
-        
+
     </nav>
 
     <table>
@@ -110,9 +111,10 @@ include 'includes/conexion.php';
         </tbody>
     </table>
 
-    
+
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
+
 </html>

@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(!isset($_SESSION['usuario'])){
+if (!isset($_SESSION['usuario'])) {
     header("Location: login.php");
     exit();
 }
@@ -37,6 +37,7 @@ if (isset($_GET['id'])) {
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -127,12 +128,19 @@ if (isset($_GET['id'])) {
         }
     </style>
 </head>
+
 <body>
     <!-- Header -->
     <header>
         <img style="height: 150px;" src="img/logo_marcelino.png" alt="Logo Institución">
         <h1>Información Completa del Alumno</h1>
     </header>
+    <nav>
+        <a href="index.php">Lista de Alumnos</a> |
+        <a href="inscribir.php">Inscribir Nuevo Alumno</a> |
+        <a class="logout" href="logout.php">Cerrar Sesión</a>
+
+    </nav>
 
     <!-- Main Content -->
     <div class="container">
@@ -206,6 +214,7 @@ if (isset($_GET['id'])) {
                 <div><strong>Nombre:</strong> <?= $representante['nombres'] . ' ' . $representante['apellidos'] ?></div>
                 <div><strong>Cédula:</strong> <?= $representante['cedula'] ?></div>
                 <div><strong>Telefono:</strong> <?= $representante['telefono'] ?></div>
+                <div><strong>Correo:</strong> <?= $representante['correo'] ?></div>
                 <div><strong>Fecha de nacimiento:</strong> <?= $representante['fecha_nacimiento'] ?></div>
                 <div><strong>Nacionalidad:</strong> <?= $representante['nacionalidad'] ?></div>
                 <div><strong>Estado civil:</strong> <?= $representante['estado_civil'] ?></div>
@@ -226,8 +235,14 @@ if (isset($_GET['id'])) {
 
     <!-- Footer -->
     <footer>
-        <p><br>Desarrollado por:</br> Servicio Comunitario <br>Ingenieria en Sistemas</br>Santiago Mariño</p>
-        <img style="height: 150px;" src="img/psm.png" alt="Logo Empresa">
+        <div class="footer-content">
+            <p>Desarrollado por:</p>
+            <p>Servicio Comunitario</p>
+            <p>Ingeniería en Sistemas</p>
+            <img src="img/psm.png" alt="Logo Empresa">
+            <p>IUP "Santiago Mariño"</p>
+        </div>
     </footer>
 </body>
+
 </html>

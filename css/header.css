@@ -19,19 +19,54 @@ header h1 {
 
 /* Footer */
 footer {
-    background-color: #333;
+    background-color: #2c3e50;
     color: white;
     text-align: center;
-    padding: 20px 10px;
-    margin-top: 20px;
+    padding: 40px 20px;
+    margin-top: 40px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
 }
 
 footer p {
-    margin: 5px 0;
-    font-size: 0.9em;
+    margin: 10px 0;
+    font-size: 1em;
+    line-height: 1.5;
 }
 
 footer img {
-    height: 40px;
-    margin-top: 10px;
+    height: 80px;
+    margin-top: 20px;
+    transition: transform 0.3s ease;
+}
+
+footer img:hover {
+    transform: scale(1.1);
+}
+
+footer .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer .footer-content p {
+    margin: 5px 0;
+}
+
+footer .footer-content img {
+    margin: 20px 0;
+}
+
+.logout {
+    background-color: rgba(255, 0, 0, 0.2);
+    border: 1px red solid;
+}
+
+.logout:hover {
+    background-color: rgba(255, 0, 0, 0.4);
 }

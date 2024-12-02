@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Insertar los datos del alumno
     $sql_alumno = "INSERT INTO alumnos (nombres, apellidos, foto, cedula_escolar, fecha_nacimiento, lugar_nacimiento, procede_hogar, procede_plantel, talla_camisa, talla_pantalon, talla_zapato, peso, altura, tipo_parto, vacunas, condicion_fisica, direccion_habitacion, control_ninos_sanos,grupo) 
                    VALUES ('$nombres', '$apellidos', '$foto_estudiante', '$cedula_escolar', '$fecha_nacimiento', '$lugar_nacimiento', '$procede_hogar', '$procede_plantel', '$talla_camisa', '$talla_pantalon', '$talla_zapato', '$peso', '$altura', '$tipo_parto', '$vacunas', '$condicion_fisica', '$direccion_habitacion', '$control_ninos_sanos', '$grupo')";
-    
+
     if ($conn->query($sql_alumno) === TRUE) {
         $alumno_id = $conn->insert_id;
 
@@ -93,6 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $representante_apellidos = $_POST['representante_apellidos'];
         $representante_cedula = $_POST['representante_cedula'];
         $representante_telefono = $_POST['representante_telefono'];
+        $representante_correo = $_POST['representante_correo'];
         $representante_nacionalidad = $_POST['representante_nacionalidad'];
         $representante_fecha_nacimiento = $_POST['representante_fecha_nacimiento'];
         $representante_estado_civil = $_POST['representante_estado_civil'];
@@ -108,15 +109,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $representante_foto = 'uploads/' . basename($_FILES['representante_foto']['name']);
             move_uploaded_file($_FILES['representante_foto']['tmp_name'], $representante_foto);
         }
-        $sql_representante = "INSERT INTO representantes (alumno_id, nombres, apellidos, foto, cedula, telefono, nacionalidad, fecha_nacimiento,estado_civil,grado_instruccion,numero_hijos,hijos_estudian,religion,vive_con_nino) 
-                      VALUES ('$alumno_id', '$representante_nombres', '$representante_apellidos', '$representante_foto', '$representante_cedula', '$representante_telefono', '$representante_nacionalidad', '$representante_fecha_nacimiento','$representante_estado_civil', '$representante_grado_instruccion','$representante_numero_hijos','$representante_hijos_estudian','$representante_religion','$representante_vive_nino')";
+        $sql_representante = "INSERT INTO representantes (alumno_id, nombres, apellidos, foto, cedula, telefono, correo, nacionalidad, fecha_nacimiento,estado_civil,grado_instruccion,numero_hijos,hijos_estudian,religion,vive_con_nino) 
+                      VALUES ('$alumno_id', '$representante_nombres', '$representante_apellidos', '$representante_foto', '$representante_cedula', '$representante_telefono', '$representante_correo', '$representante_nacionalidad', '$representante_fecha_nacimiento','$representante_estado_civil', '$representante_grado_instruccion','$representante_numero_hijos','$representante_hijos_estudian','$representante_religion','$representante_vive_nino')";
         $conn->query($sql_representante);
 
-        echo "¡Inscripción exitosa! <a href='index.php'>Volver al inicio</a>";
+        echo "<div style='display:grid; place-content:center; height:100vh; width:100%; margin:auto 0; gap:10px;'><span>¡Inscripción exitosa!</span><a href='index.php'><button style='background-color: #000080; color: #fff; padding: 15px 30px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;'>Volver al inicio</button></a></div>";
     } else {
         echo "Error: " . $sql_alumno . "<br>" . $conn->error;
     }
 }
-?>
-
-
