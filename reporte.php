@@ -14,7 +14,7 @@ class PDF extends FPDF
         // Movernos a la derecha
         $this->Cell(80);
         // Título
-        $this->Cell(30, 10, 'Reporte de Estudiantes Inscritos', 0, 1, 'C');
+        $this->Cell(30, 10, 'Reporte de Estudiantes Inscritos — 2024-2025', 0, 1, 'C');
         // Salto de línea
         $this->Ln(20);
     }
