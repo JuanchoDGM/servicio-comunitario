@@ -53,6 +53,9 @@ if (!isset($_SESSION['usuario'])) {
             <option value="Grupo 3">Grupo 3</option>
         </select>
 
+        <label for="periodo">Periodo a cursar:</label>
+        <input type="text" name="periodo" id="periodo" required>
+
         <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
         <input type="date" name="fecha_nacimiento" id="fecha_nacimiento" required>
 

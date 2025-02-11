@@ -151,6 +151,7 @@ if (isset($_GET['id'])) {
             <div class="card-content">
                 <div><strong>Nombre:</strong> <?= $alumno['nombres'] . ' ' . $alumno['apellidos'] ?></div>
                 <div><strong>Cédula Escolar:</strong> <?= $alumno['cedula_escolar'] ?></div>
+                <div><strong>Periodo a cursar:</strong> <?= $alumno['periodo'] ?></div>
                 <div><strong>Fecha de Nacimiento:</strong> <?= $alumno['fecha_nacimiento'] ?></div>
                 <div><strong>Lugar de Nacimiento:</strong> <?= $alumno['lugar_nacimiento'] ?></div>
                 <div><strong>Procede de Hogar:</strong> <?= $alumno['procede_hogar'] ?></div>

@@ -49,6 +49,9 @@ include 'procesar_modificacion.php';
             <option value="Grupo 3" <?php if ($alumnos['grupo'] == 'Grupo 3') echo 'selected'; ?>>Grupo 3</option>
         </select>
 
+        <label for="periodo">Periodo a cursar:</label>
+        <input type="text" name="periodo" id="periodo" value="<?php echo $alumnos['periodo']; ?>" required>
+
         <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
         <input type="date" name="fecha_nacimiento" id="fecha_nacimiento" value="<?php echo $alumnos['fecha_nacimiento']; ?>" required>
 

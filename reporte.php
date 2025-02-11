@@ -14,7 +14,10 @@ class PDF extends FPDF
         // Movernos a la derecha
         $this->Cell(80);
         // Título
-        $this->Cell(30, 10, 'Reporte de Estudiantes Inscritos — 2024-2025', 0, 1, 'C');
+        $this->Cell(30, 10, 'Reporte de Estudiantes Inscritos', 0, 1, 'C');
+        // Obtener el periodo escolar actual
+        $periodo_escolar = $this->GetPeriodoEscolar();
+        $this->Cell(0, 10, 'Periodo Escolar: ' . $periodo_escolar, 0, 1, 'C');
         // Salto de línea
         $this->Ln(20);
     }
@@ -70,6 +73,14 @@ class PDF extends FPDF
             $this->SetX(($this->w - $totalWidth) / 2); // Centrar la tabla
             $this->Cell($totalWidth, 0, '', 'T');
         }
+    }
+
+    // Obtener el periodo escolar actual
+    function GetPeriodoEscolar()
+    {
+        // Aquí puedes definir la lógica para obtener el periodo escolar actual
+        // Por ejemplo, puedes obtenerlo de la base de datos o definirlo manualmente
+        return '2025-2026'; // Ejemplo de periodo escolar
     }
 }
 
